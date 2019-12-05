@@ -16,7 +16,7 @@
           </option>
         </select>
       </div>
-      <!-- <button @click="generate">Generate</button> -->
+      <button @click="generate">Generate</button>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default class Generator extends Vue {
   }
 
   generate() {
-    console.log("Generate!");
+    // console.log("Generate!");
   }
 }
 </script>
