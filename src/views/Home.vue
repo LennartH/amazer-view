@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Generator msg="Amazer"/>
+    <Generator />
   </div>
 </template>
 
