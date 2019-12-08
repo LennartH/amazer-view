@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+  <div id="app" class="amazer-root">
+    <b-navbar toggleable="lg" type="dark" variant="dark" class="amazer-navbar">
       <b-container>
         <b-navbar-brand href="#">Amazer</b-navbar-brand>
 
@@ -12,8 +12,20 @@
         </b-collapse>
       </b-container>
     </b-navbar>
-    <b-container>
-      <router-view/>
-    </b-container>
+    
+    <router-view/>
   </div>
 </template>
+
+<style scoped>
+.amazer-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between
+}
+
+.amazer-navbar {
+  flex: 0 1 auto;
+}
+</style>

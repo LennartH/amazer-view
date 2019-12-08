@@ -10,21 +10,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { generators, AreaGenerator, capitalize, RecursiveBacktracker } from 'amazer';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, generator } from 'amazer';
+import { AmazerState } from "../views/Home.vue";
 
 @Component
 export default class GeneratorConfig extends Vue {
 
-  generator: string = capitalize(RecursiveBacktracker.name);
+  sharedState = AmazerState;
+
+  generator: AreaGenerator<any> = RecursiveBacktracker;
+
+  get generators(): Array<[AreaGenerator<any>, Field[] | undefined]> {
+    return generators();
+  }
 
   get generatorOptions(): string[] {
-    let generatorNames = [];
-    for (let entry of generators()) {
-      const generator: AreaGenerator<any> = entry[0];
-      generatorNames.push(capitalize(generator.name));
+    let options = [];
+    for (let entry of this.generators) {
+      options.push({text: capitalize(entry[0].name), value: entry[0]});
     }
-    return generatorNames;
+    return options;
+  }
+
+  @Watch("generator")
+  forwardGenerator() {
+    this.sharedState.generator = {generator: this.generator};
   }
 }
 </script>
