@@ -1,6 +1,6 @@
 <template>
   <b-container :id="id">
-    <b-row align-v="center" :no-gutters="true">
+    <b-row align-v="center" no-gutters>
       <b-col cols="2" class="text-right pr-2">Size</b-col>
       <b-col cols="4">
         <b-form-input v-model.number="width" :id="`${id}-width`" type="number" size="sm" style="text-align: right;" placeholder="width" />
