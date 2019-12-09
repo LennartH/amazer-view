@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, generator } from 'amazer';
+import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, generator, Dict } from 'amazer';
 import { AmazerState } from "../views/Home.vue";
 
 @Component
@@ -25,7 +25,7 @@ export default class GeneratorConfig extends Vue {
     return generators();
   }
 
-  get generatorOptions(): string[] {
+  get generatorOptions(): Dict<any> {
     let options = [];
     for (let entry of this.generators) {
       options.push({text: capitalize(entry[0].name), value: entry[0]});
