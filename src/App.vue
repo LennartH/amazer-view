@@ -7,7 +7,7 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to="/">Home</b-nav-item>
-            <b-nav-item to="/about">About</b-nav-item>
+            <b-nav-item :href="config.docsUrl" target="_blank">Documentation</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-container>
@@ -16,6 +16,18 @@
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import config from "@/config";
+
+export default {
+  data() {
+    return {
+      config: config
+    }
+  }
+}
+</script>
 
 <style scoped>
 .amazer-root {
