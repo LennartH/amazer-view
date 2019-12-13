@@ -1,0 +1,20 @@
+name: Node CI
+
+on: 
+  push:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Initialize Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: npm build
+      run: |
+        npm ci
+        npm run build
