@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, generator, Dict } from 'amazer';
+import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, generator, Dict, RegisteredGenerator } from 'amazer';
 import { AmazerState } from "../views/Home.vue";
 
 @Component
@@ -21,14 +21,14 @@ export default class GeneratorConfig extends Vue {
 
   generator: AreaGenerator<any> = RecursiveBacktracker;
 
-  get generators(): Array<[AreaGenerator<any>, Field[] | undefined]> {
+  get generators(): RegisteredGenerator<any>[] {
     return generators();
   }
 
   get generatorOptions(): Dict<any> {
     let options = [];
     for (let entry of this.generators) {
-      options.push({text: capitalize(entry[0].name), value: entry[0]});
+      options.push({text: capitalize(entry.name), value: entry.generator});
     }
     return options;
   }
