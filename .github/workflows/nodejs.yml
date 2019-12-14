@@ -21,10 +21,10 @@ jobs:
         npm run build
     - name: publish
       uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.NETCUP_WEB_HOST }}
-        USERNAME: ${{ secrets.NETCUP_WEB_USER }}
-        KEY: ${{ secrets.NETCUP_WEB_KEY }}
       with:
+        host: ${{ secrets.NETCUP_WEB_HOST }}
+        username: ${{ secrets.NETCUP_WEB_USER }}
+        # key: ${{ secrets.NETCUP_WEB_KEY }}
+        password: ${{ secrets.NETCUP_WEB_PASSWORD }}
         source: "dist/*"
         target: "httpdocs/amazer-view/"
