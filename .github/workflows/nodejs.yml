@@ -22,7 +22,8 @@ jobs:
     - name: publish
       run: |
         cd dist
-        scp -r -i <(echo "${{ secrets.NETCUP_WEB_KEY }}") ssh_key * ${{ secrets.NETCUP_WEB_USER }}@${{ secrets.NETCUP_WEB_HOST }}:httpdocs/amazer-view/
+        echo "${{ secrets.NETCUP_WEB_KEY }}" > ssh_key
+        scp -r -i ssh_key * ${{ secrets.NETCUP_WEB_USER }}@${{ secrets.NETCUP_WEB_HOST }}:httpdocs/amazer-view/
       # uses: horochx/deploy-via-scp@master
       # with:
       #   host: ${{ secrets.NETCUP_WEB_HOST }}
