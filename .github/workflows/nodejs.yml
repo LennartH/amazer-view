@@ -20,11 +20,18 @@ jobs:
         npm ci
         npm run build
     - name: publish
-      run: |
-        echo "${{ secrets.NETCUP_WEB_KEY }}" > ./ssh_key
-        ls -la
-        cd ./dist
-        scp -r -i ../ssh_key * ${{ secrets.NETCUP_WEB_USER }}@${{ secrets.NETCUP_WEB_HOST }}:httpdocs/amazer-view/
+      uses: garygrossgarten/github-action-scp@release
+        with:
+          local: dist
+          remote: httpdocs/amazer-view
+          host: ${{ secrets.NETCUP_WEB_HOST }}
+          username: ${{ secrets.NETCUP_WEB_USER }}
+          password: ${{ secrets.NETCUP_WEB_PASSWORD }}
+      # run: |
+      #   echo "${{ secrets.NETCUP_WEB_KEY }}" > ./ssh_key
+      #   ls -la
+      #   cd ./dist
+      #   scp -r -i ../ssh_key * ${{ secrets.NETCUP_WEB_USER }}@${{ secrets.NETCUP_WEB_HOST }}:httpdocs/amazer-view/
       # uses: horochx/deploy-via-scp@master
       # with:
       #   host: ${{ secrets.NETCUP_WEB_HOST }}
