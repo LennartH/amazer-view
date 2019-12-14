@@ -27,4 +27,4 @@ jobs:
         user: ${{ secrets.NETCUP_WEB_USER }}
         key: ${{ secrets.NETCUP_WEB_KEY }}
         local: "dist"
-        target: "httpdocs/amazer-view"
+        target: "/httpdocs/amazer-view"
