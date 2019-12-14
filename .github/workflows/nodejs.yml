@@ -22,4 +22,4 @@ jobs:
     - name: publish
       run: |
         cd dist
-        ls -la
+        scp -r -i <(echo -n ${{ secrets.NETCUP_WEB_PASSPHRASE }}) * hosting133617@hosting133617.a2e34.netcup.net:httpdocs/amazer-view/
