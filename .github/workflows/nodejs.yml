@@ -20,11 +20,11 @@ jobs:
         npm ci
         npm run build
     - name: publish
-      uses: appleboy/scp-action@master
+      uses: horochx/deploy-via-scp@master
       with:
         host: ${{ secrets.NETCUP_WEB_HOST }}
-        username: ${{ secrets.NETCUP_WEB_USER }}
-        # key: ${{ secrets.NETCUP_WEB_KEY }}
-        password: ${{ secrets.NETCUP_WEB_PASSWORD }}
-        source: "dist/*"
-        target: "httpdocs/amazer-view/"
+        port: 22
+        user: ${{ secrets.NETCUP_WEB_USER }}
+        key: ${{ secrets.NETCUP_WEB_KEY }}
+        local: "dist"
+        target: "httpdocs/amazer-view"
