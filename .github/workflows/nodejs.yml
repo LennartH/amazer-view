@@ -21,12 +21,12 @@ jobs:
         npm run build
     - name: publish
       uses: garygrossgarten/github-action-scp@release
-        with:
-          local: dist
-          remote: httpdocs/amazer-view
-          host: ${{ secrets.NETCUP_WEB_HOST }}
-          username: ${{ secrets.NETCUP_WEB_USER }}
-          password: ${{ secrets.NETCUP_WEB_PASSWORD }}
+      with:
+        local: dist
+        remote: httpdocs/amazer-view
+        host: ${{ secrets.NETCUP_WEB_HOST }}
+        username: ${{ secrets.NETCUP_WEB_USER }}
+        password: ${{ secrets.NETCUP_WEB_PASSWORD }}
       # run: |
       #   echo "${{ secrets.NETCUP_WEB_KEY }}" > ./ssh_key
       #   ls -la
