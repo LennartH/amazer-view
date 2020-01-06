@@ -15,7 +15,7 @@ import { generators, AreaGenerator, capitalize, RecursiveBacktracker, Field, gen
 import { AmazerState } from "../views/Home.vue";
 
 @Component
-export default class GeneratorConfig extends Vue {
+export default class AmazerConfig extends Vue {
 
   sharedState = AmazerState;
 

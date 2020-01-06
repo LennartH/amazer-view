@@ -9,7 +9,7 @@
       </b-row>
     </b-container>
     <b-container :fluid="true">
-      <b-row class="mt-2 bg-dark text-white" no-gutters><Area /></b-row>
+      <b-row class="mt-2 bg-dark text-white" no-gutters><AreaView /></b-row>
     </b-container>
   </div>
 </template>
@@ -18,17 +18,17 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import SizeConfig from "@/components/SizeConfig.vue";
 import GeneratorConfig from "@/components/GeneratorConfig.vue";
-import Area from "@/components/Area.vue";
+import AreaView from "@/components/AreaView.vue";
 import amazer, { generators, capitalize, AreaGenerator, Size, AreaModifier, RecursiveBacktracker, Config, GeneratorWithConfig, ModifierWithConfig, areaToString, Dict } from "amazer";
 import { AmazerState } from "../views/Home.vue";
 
 
 @Component({
   components: {
-    SizeConfig, GeneratorConfig, Area
+    SizeConfig, GeneratorConfig, AreaView
   }
 })
-export default class Generator extends Vue {
+export default class AmazerView extends Vue {
   generate() {
     let config = new Config(AmazerState.size, AmazerState.generator, AmazerState.modifiers);
     let area = amazer(config).generate();

@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <Generator />
+    <AmazerView />
   </div>
 </template>
 
 <script lang="ts">
-import Generator from "@/components/Generator.vue";
+import AmazerView from "@/components/AmazerView.vue";
 import { Dict, RecursiveBacktracker } from "amazer";
 
 
@@ -20,7 +20,7 @@ export const AmazerState: Dict<any> = {
 export default {
   name: 'home',
   components: {
-    Generator
+    AmazerView
   }
 }
 </script>
